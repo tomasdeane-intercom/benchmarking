@@ -1,0 +1,50 @@
+{
+  "run_id": "sidekiq-fanout-20260218_150016-96ed7333",
+  "system": "sidekiq",
+  "workload": "fanout",
+  "timestamp": "2026-02-18T15:00:18.435015",
+  "bench_mode": "optimized",
+  "config": {
+    "messages": 10000,
+    "warmup": 500,
+    "partitions": null,
+    "concurrency": 25,
+    "fanout_factor": 10,
+    "delay_seconds": null,
+    "worker_threads": 25,
+    "sidekiq_batch_size": 100,
+    "kafka_compression": null,
+    "kafka_acks": null
+  },
+  "statistics": {
+    "total_messages": 10000,
+    "successful": 10000,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 1.44,
+      "max": 907.32,
+      "mean": 431.06,
+      "median": 424.31,
+      "p95": 848.16,
+      "p99": 891.9,
+      "stddev": 255.39
+    },
+    "processing_ms": {
+      "min": 0.07,
+      "mean": 0.09,
+      "median": 0.07,
+      "p95": 0.16,
+      "p99": 0.47
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 8806.21,
+      "produce_msg_per_sec": 43626.36
+    },
+    "timing_s": {
+      "total_wall": 1.136,
+      "produce": 0.229,
+      "drain": 0.906
+    }
+  }
+}

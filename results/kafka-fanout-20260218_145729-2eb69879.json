@@ -1,0 +1,50 @@
+{
+  "run_id": "kafka-fanout-20260218_145729-2eb69879",
+  "system": "kafka",
+  "workload": "fanout",
+  "timestamp": "2026-02-18T14:57:34.078597",
+  "bench_mode": "optimized",
+  "config": {
+    "messages": 10000,
+    "warmup": 500,
+    "partitions": 12,
+    "concurrency": 25,
+    "fanout_factor": 10,
+    "delay_seconds": null,
+    "worker_threads": 25,
+    "sidekiq_batch_size": 100,
+    "kafka_compression": "snappy",
+    "kafka_acks": "1"
+  },
+  "statistics": {
+    "total_messages": 10000,
+    "successful": 10000,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 2.63,
+      "max": 376.78,
+      "mean": 159.73,
+      "median": 156.49,
+      "p95": 315.84,
+      "p99": 363.38,
+      "stddev": 92.85
+    },
+    "processing_ms": {
+      "min": 0.03,
+      "mean": 0.03,
+      "median": 0.03,
+      "p95": 0.04,
+      "p99": 0.08
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 21191.72,
+      "produce_msg_per_sec": 60801.29
+    },
+    "timing_s": {
+      "total_wall": 0.472,
+      "produce": 0.164,
+      "drain": 0.307
+    }
+  }
+}

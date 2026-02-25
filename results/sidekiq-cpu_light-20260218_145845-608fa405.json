@@ -1,0 +1,50 @@
+{
+  "run_id": "sidekiq-cpu_light-20260218_145845-608fa405",
+  "system": "sidekiq",
+  "workload": "cpu_light",
+  "timestamp": "2026-02-18T14:58:50.174273",
+  "bench_mode": "optimized",
+  "config": {
+    "messages": 10000,
+    "warmup": 500,
+    "partitions": null,
+    "concurrency": 25,
+    "fanout_factor": null,
+    "delay_seconds": null,
+    "worker_threads": 25,
+    "sidekiq_batch_size": 100,
+    "kafka_compression": null,
+    "kafka_acks": null
+  },
+  "statistics": {
+    "total_messages": 10000,
+    "successful": 10000,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 2.05,
+      "max": 2726.42,
+      "mean": 1369.34,
+      "median": 1402.61,
+      "p95": 2597.09,
+      "p99": 2699.86,
+      "stddev": 803.7
+    },
+    "processing_ms": {
+      "min": 0.65,
+      "mean": 0.79,
+      "median": 0.72,
+      "p95": 1.04,
+      "p99": 1.33
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 3538.16,
+      "produce_msg_per_sec": 99765.09
+    },
+    "timing_s": {
+      "total_wall": 2.826,
+      "produce": 0.1,
+      "drain": 2.726
+    }
+  }
+}

@@ -1,0 +1,45 @@
+{
+  "run_id": "sidekiq-io_bound-20260211_165415-9f618dcc",
+  "system": "sidekiq",
+  "workload": "io_bound",
+  "timestamp": "2026-02-11T16:55:28.581303",
+  "config": {
+    "messages": 5000,
+    "warmup": 500,
+    "partitions": null,
+    "concurrency": 10,
+    "fanout_factor": null,
+    "delay_seconds": null
+  },
+  "statistics": {
+    "total_messages": 5000,
+    "successful": 5000,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 53.1,
+      "max": 65206.55,
+      "mean": 32586.64,
+      "median": 32612.31,
+      "p95": 61894.87,
+      "p99": 64518.36,
+      "stddev": 18806.13
+    },
+    "processing_ms": {
+      "min": 52.26,
+      "mean": 127.68,
+      "median": 127.06,
+      "p95": 155.64,
+      "p99": 158.35
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 76.21,
+      "produce_msg_per_sec": 12399.75
+    },
+    "timing_s": {
+      "total_wall": 65.61,
+      "produce": 0.403,
+      "drain": 65.206
+    }
+  }
+}

@@ -1,0 +1,50 @@
+{
+  "run_id": "kafka-delayed-20260218_145814-808dc8a2",
+  "system": "kafka",
+  "workload": "delayed",
+  "timestamp": "2026-02-18T14:58:23.820998",
+  "bench_mode": "optimized",
+  "config": {
+    "messages": 10000,
+    "warmup": 500,
+    "partitions": 12,
+    "concurrency": 25,
+    "fanout_factor": null,
+    "delay_seconds": 5.0,
+    "worker_threads": 25,
+    "sidekiq_batch_size": 100,
+    "kafka_compression": "snappy",
+    "kafka_acks": "1"
+  },
+  "statistics": {
+    "total_messages": 10000,
+    "successful": 10000,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 7.06,
+      "max": 5000.79,
+      "mean": 2517.57,
+      "median": 2500.35,
+      "p95": 4751.53,
+      "p99": 4951.17,
+      "stddev": 1430.66
+    },
+    "processing_ms": {
+      "min": 0.03,
+      "mean": 33.06,
+      "median": 12.05,
+      "p95": 14.09,
+      "p99": 44.22
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 1983.7,
+      "produce_msg_per_sec": 239889.73
+    },
+    "timing_s": {
+      "total_wall": 5.041,
+      "produce": 0.042,
+      "drain": 4.999
+    }
+  }
+}

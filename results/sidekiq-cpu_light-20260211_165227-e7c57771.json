@@ -1,0 +1,45 @@
+{
+  "run_id": "sidekiq-cpu_light-20260211_165227-e7c57771",
+  "system": "sidekiq",
+  "workload": "cpu_light",
+  "timestamp": "2026-02-11T16:52:33.558197",
+  "config": {
+    "messages": 5000,
+    "warmup": 500,
+    "partitions": null,
+    "concurrency": 10,
+    "fanout_factor": null,
+    "delay_seconds": null
+  },
+  "statistics": {
+    "total_messages": 5000,
+    "successful": 5000,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 1.11,
+      "max": 4551.29,
+      "mean": 2301.33,
+      "median": 2309.62,
+      "p95": 4341.61,
+      "p99": 4508.71,
+      "stddev": 1304.2
+    },
+    "processing_ms": {
+      "min": 0.58,
+      "mean": 0.71,
+      "median": 0.68,
+      "p95": 0.92,
+      "p99": 1.03
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 1001.6,
+      "produce_msg_per_sec": 11342.57
+    },
+    "timing_s": {
+      "total_wall": 4.992,
+      "produce": 0.441,
+      "drain": 4.551
+    }
+  }
+}

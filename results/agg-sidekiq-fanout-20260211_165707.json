@@ -1,0 +1,137 @@
+[
+  {
+    "run_id": "sidekiq-fanout-20260211_165647-43978e8f",
+    "system": "sidekiq",
+    "workload": "fanout",
+    "timestamp": "2026-02-11T16:56:50.966510",
+    "config": {
+      "messages": 5000,
+      "warmup": 500,
+      "partitions": null,
+      "concurrency": 10,
+      "fanout_factor": 10,
+      "delay_seconds": null
+    },
+    "statistics": {
+      "total_messages": 5000,
+      "successful": 5000,
+      "failed": 0,
+      "error_rate_pct": 0.0,
+      "latency_ms": {
+        "min": 0.52,
+        "max": 1269.29,
+        "mean": 645.16,
+        "median": 652.88,
+        "p95": 1209.68,
+        "p99": 1256.92,
+        "stddev": 362.48
+      },
+      "processing_ms": {
+        "min": 0.06,
+        "mean": 0.08,
+        "median": 0.07,
+        "p95": 0.13,
+        "p99": 0.47
+      },
+      "throughput": {
+        "consumed_msg_per_sec": 2706.29,
+        "produce_msg_per_sec": 8642.25
+      },
+      "timing_s": {
+        "total_wall": 1.848,
+        "produce": 0.579,
+        "drain": 1.269
+      }
+    }
+  },
+  {
+    "run_id": "sidekiq-fanout-20260211_165655-f2a0bce6",
+    "system": "sidekiq",
+    "workload": "fanout",
+    "timestamp": "2026-02-11T16:56:59.115396",
+    "config": {
+      "messages": 5000,
+      "warmup": 500,
+      "partitions": null,
+      "concurrency": 10,
+      "fanout_factor": 10,
+      "delay_seconds": null
+    },
+    "statistics": {
+      "total_messages": 5000,
+      "successful": 5000,
+      "failed": 0,
+      "error_rate_pct": 0.0,
+      "latency_ms": {
+        "min": 0.62,
+        "max": 1213.27,
+        "mean": 702.21,
+        "median": 751.25,
+        "p95": 1164.68,
+        "p99": 1200.57,
+        "stddev": 351.64
+      },
+      "processing_ms": {
+        "min": 0.06,
+        "mean": 0.09,
+        "median": 0.07,
+        "p95": 0.14,
+        "p99": 0.43
+      },
+      "throughput": {
+        "consumed_msg_per_sec": 2627.98,
+        "produce_msg_per_sec": 7243.45
+      },
+      "timing_s": {
+        "total_wall": 1.903,
+        "produce": 0.69,
+        "drain": 1.212
+      }
+    }
+  },
+  {
+    "run_id": "sidekiq-fanout-20260211_165704-5a1ed8a6",
+    "system": "sidekiq",
+    "workload": "fanout",
+    "timestamp": "2026-02-11T16:57:07.109323",
+    "config": {
+      "messages": 5000,
+      "warmup": 500,
+      "partitions": null,
+      "concurrency": 10,
+      "fanout_factor": 10,
+      "delay_seconds": null
+    },
+    "statistics": {
+      "total_messages": 5000,
+      "successful": 5000,
+      "failed": 0,
+      "error_rate_pct": 0.0,
+      "latency_ms": {
+        "min": 0.25,
+        "max": 1156.27,
+        "mean": 580.52,
+        "median": 578.63,
+        "p95": 1093.12,
+        "p99": 1143.75,
+        "stddev": 330.28
+      },
+      "processing_ms": {
+        "min": 0.06,
+        "mean": 0.08,
+        "median": 0.07,
+        "p95": 0.11,
+        "p99": 0.3
+      },
+      "throughput": {
+        "consumed_msg_per_sec": 2989.98,
+        "produce_msg_per_sec": 9679.99
+      },
+      "timing_s": {
+        "total_wall": 1.672,
+        "produce": 0.517,
+        "drain": 1.156
+      }
+    }
+  }
+]

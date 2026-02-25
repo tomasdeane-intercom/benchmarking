@@ -1,0 +1,50 @@
+{
+  "run_id": "kafka-cpu_light-20260218_145550-24cfb623",
+  "system": "kafka",
+  "workload": "cpu_light",
+  "timestamp": "2026-02-18T14:55:58.164286",
+  "bench_mode": "optimized",
+  "config": {
+    "messages": 10000,
+    "warmup": 500,
+    "partitions": 12,
+    "concurrency": 25,
+    "fanout_factor": null,
+    "delay_seconds": null,
+    "worker_threads": 25,
+    "sidekiq_batch_size": 100,
+    "kafka_compression": "snappy",
+    "kafka_acks": "1"
+  },
+  "statistics": {
+    "total_messages": 10000,
+    "successful": 10000,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 7.57,
+      "max": 3049.44,
+      "mean": 1295.27,
+      "median": 1068.45,
+      "p95": 2857.75,
+      "p99": 3010.93,
+      "stddev": 892.37
+    },
+    "processing_ms": {
+      "min": 0.26,
+      "mean": 0.3,
+      "median": 0.3,
+      "p95": 0.33,
+      "p99": 0.36
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 3241.14,
+      "produce_msg_per_sec": 265783.57
+    },
+    "timing_s": {
+      "total_wall": 3.085,
+      "produce": 0.038,
+      "drain": 3.048
+    }
+  }
+}
