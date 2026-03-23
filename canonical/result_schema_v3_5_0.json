@@ -1,0 +1,577 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/result_schema_v3_5_0.json",
+  "title": "Benchmark Result Schema v3.5.0",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "run_id",
+    "suite_id",
+    "condition_id",
+    "repeat_index",
+    "variable_under_test",
+    "system",
+    "workload",
+    "timestamp",
+    "run_start_utc",
+    "run_end_utc",
+    "config",
+    "statistics"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "3.5.0"
+    },
+    "run_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "suite_id": {
+      "type": "string",
+      "minLength": 1
+    },
+    "condition_id": {
+      "type": "string"
+    },
+    "repeat_index": {
+      "type": "integer",
+      "minimum": 1
+    },
+    "variable_under_test": {
+      "type": "string",
+      "minLength": 1
+    },
+    "system": {
+      "type": "string",
+      "enum": [
+        "kafka",
+        "sidekiq"
+      ]
+    },
+    "workload": {
+      "type": "string",
+      "enum": [
+        "cpu_light",
+        "io_bound",
+        "bursty_ingest",
+        "delayed"
+      ]
+    },
+    "timestamp": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_start_utc": {
+      "type": "string",
+      "minLength": 1
+    },
+    "run_end_utc": {
+      "type": "string",
+      "minLength": 1
+    },
+    "trace_file": {
+      "type": "string"
+    },
+    "config": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "messages",
+        "warmup",
+        "produce_pattern",
+        "stub_delay_ms",
+        "stub_capacity_workers",
+        "nominal_concurrency_target",
+        "concurrency_model",
+        "semantics_profile",
+        "burst_size",
+        "inter_burst_ms",
+        "delay_seconds"
+      ],
+      "properties": {
+        "messages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "warmup": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "produce_pattern": {
+          "type": "string"
+        },
+        "stub_delay_ms": {
+          "type": [
+            "integer",
+            "number",
+            "null"
+          ]
+        },
+        "stub_capacity_workers": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "nominal_concurrency_target": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "concurrency_model": {
+          "type": "string",
+          "enum": [
+            "consumer_instances",
+            "processor_slots"
+          ]
+        },
+        "semantics_profile": {
+          "type": "string"
+        },
+        "burst_size": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "inter_burst_ms": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "delay_seconds": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "requested_partitions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "observed_partitions": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kafka_consumer_replicas": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kafka_consumer_instances_per_container": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kafka_configured_consumer_instances": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kafka_assignment_parallelism_upper_bound": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "kafka_compression": {
+          "type": "string"
+        },
+        "kafka_acks": {
+          "type": "string"
+        },
+        "sidekiq_worker_replicas": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sidekiq_threads_per_worker": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sidekiq_configured_processor_slots": {
+          "type": "integer",
+          "minimum": 1
+        },
+        "sidekiq_processor_parallelism_upper_bound": {
+          "type": "integer",
+          "minimum": 1
+        }
+      }
+    },
+    "statistics": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "expected_messages",
+        "accounted_messages",
+        "total_messages",
+        "successful",
+        "logical_failures",
+        "exception_failures",
+        "failed",
+        "error_rate_pct",
+        "latency_ms",
+        "wait_to_start_ms",
+        "processing_ms",
+        "throughput",
+        "timing_s"
+      ],
+      "properties": {
+        "expected_messages": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "accounted_messages": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Total terminal outcomes accounted for in the trace: non-error message records plus exception-only error records."
+        },
+        "total_messages": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of terminal non-error trace records for the run. This includes both successful and logical-failure message outcomes, but excludes _type=error exception records."
+        },
+        "successful": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of terminal non-error trace records where success=true."
+        },
+        "logical_failures": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of terminal non-error trace records where success=false."
+        },
+        "exception_failures": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Count of _type=error trace records representing exception-path failures that never produced a terminal message record."
+        },
+        "failed": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "error_rate_pct": {
+          "type": "number",
+          "minimum": 0
+        },
+        "latency_ms": {
+          "$ref": "#/$defs/summary_with_stddev"
+        },
+        "wait_to_start_ms": {
+          "$ref": "#/$defs/summary_with_stddev"
+        },
+        "processing_ms": {
+          "$ref": "#/$defs/summary"
+        },
+        "throughput": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "consumed_msg_per_sec",
+            "produce_msg_per_sec"
+          ],
+          "properties": {
+            "consumed_msg_per_sec": {
+              "type": "number"
+            },
+            "produce_msg_per_sec": {
+              "type": "number"
+            }
+          }
+        },
+        "timing_s": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "total_wall",
+            "produce",
+            "drain"
+          ],
+          "properties": {
+            "total_wall": {
+              "type": "number"
+            },
+            "produce": {
+              "type": "number"
+            },
+            "drain": {
+              "type": "number"
+            }
+          }
+        },
+        "start_lateness_ms": {
+          "$ref": "#/$defs/summary_with_stddev"
+        },
+        "completion_lateness_ms": {
+          "$ref": "#/$defs/summary_with_stddev"
+        },
+        "scheduling": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "total_scheduled",
+            "early_start_count",
+            "on_time_pct_100ms",
+            "on_time_pct_500ms",
+            "jitter_ms"
+          ],
+          "properties": {
+            "total_scheduled": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "early_start_count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "on_time_pct_100ms": {
+              "type": "number"
+            },
+            "on_time_pct_500ms": {
+              "type": "number"
+            },
+            "jitter_ms": {
+              "type": "number",
+              "minimum": 0
+            }
+          }
+        }
+      }
+    },
+    "resource_usage": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "samples",
+        "by_role"
+      ],
+      "properties": {
+        "samples": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "by_role": {
+          "type": "object",
+          "patternProperties": {
+            ".+": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "cpu_pct",
+                "mem_mb"
+              ],
+              "properties": {
+                "cpu_pct": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "mean",
+                    "peak"
+                  ],
+                  "properties": {
+                    "mean": {
+                      "type": "number"
+                    },
+                    "peak": {
+                      "type": "number"
+                    }
+                  }
+                },
+                "mem_mb": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "mean",
+                    "peak"
+                  ],
+                  "properties": {
+                    "mean": {
+                      "type": "number"
+                    },
+                    "peak": {
+                      "type": "number"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "additionalProperties": false
+        }
+      }
+    }
+  },
+  "$defs": {
+    "summary": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max",
+        "mean",
+        "median",
+        "p95",
+        "p99"
+      ],
+      "properties": {
+        "min": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "max": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "median": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "p95": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "p99": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    },
+    "summary_with_stddev": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "min",
+        "max",
+        "mean",
+        "median",
+        "p95",
+        "p99",
+        "stddev"
+      ],
+      "properties": {
+        "min": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "max": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "mean": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "median": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "p95": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "p99": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "stddev": {
+          "type": [
+            "number",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "system": {
+            "const": "kafka"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "config": {
+            "required": [
+              "concurrency_model",
+              "requested_partitions",
+              "observed_partitions",
+              "kafka_consumer_replicas",
+              "kafka_consumer_instances_per_container",
+              "kafka_configured_consumer_instances",
+              "kafka_assignment_parallelism_upper_bound",
+              "kafka_compression",
+              "kafka_acks"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "system": {
+            "const": "sidekiq"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "config": {
+            "required": [
+              "concurrency_model",
+              "sidekiq_worker_replicas",
+              "sidekiq_threads_per_worker",
+              "sidekiq_configured_processor_slots",
+              "sidekiq_processor_parallelism_upper_bound"
+            ]
+          }
+        }
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "workload": {
+            "const": "delayed"
+          }
+        }
+      },
+      "then": {
+        "properties": {
+          "statistics": {
+            "required": [
+              "start_lateness_ms",
+              "completion_lateness_ms",
+              "scheduling"
+            ]
+          }
+        }
+      }
+    }
+  ]
+}

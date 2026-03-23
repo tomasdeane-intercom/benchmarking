@@ -1,0 +1,93 @@
+{
+  "type": "stub_capacity_calibration",
+  "timestamp": "2026-03-22T18:29:45.183089+00:00",
+  "config": {
+    "stub_url": "http://stub-server:8080",
+    "stub_workers": 20,
+    "delay_ms": 50,
+    "requests_per_worker": 100
+  },
+  "results": [
+    {
+      "concurrency": 1,
+      "total_requests": 100,
+      "successful": 100,
+      "errors": 0,
+      "throughput_rps": 17.59,
+      "wall_time_s": 5.684,
+      "latency_ms": {
+        "min": 51.7,
+        "max": 61.37,
+        "mean": 56.64,
+        "median": 56.52,
+        "p95": 60.66,
+        "p99": 61.27
+      }
+    },
+    {
+      "concurrency": 4,
+      "total_requests": 400,
+      "successful": 400,
+      "errors": 0,
+      "throughput_rps": 67.83,
+      "wall_time_s": 5.897,
+      "latency_ms": {
+        "min": 51.85,
+        "max": 68.25,
+        "mean": 58.84,
+        "median": 58.58,
+        "p95": 63.55,
+        "p99": 66.12
+      }
+    },
+    {
+      "concurrency": 8,
+      "total_requests": 800,
+      "successful": 800,
+      "errors": 0,
+      "throughput_rps": 134.49,
+      "wall_time_s": 5.948,
+      "latency_ms": {
+        "min": 51.76,
+        "max": 73.72,
+        "mean": 58.93,
+        "median": 58.18,
+        "p95": 67.11,
+        "p99": 71.28
+      }
+    },
+    {
+      "concurrency": 16,
+      "total_requests": 1600,
+      "successful": 1600,
+      "errors": 0,
+      "throughput_rps": 290.86,
+      "wall_time_s": 5.501,
+      "latency_ms": {
+        "min": 51.14,
+        "max": 71.57,
+        "mean": 54.67,
+        "median": 54.0,
+        "p95": 59.65,
+        "p99": 62.86
+      }
+    },
+    {
+      "concurrency": 32,
+      "total_requests": 3200,
+      "successful": 3200,
+      "errors": 0,
+      "throughput_rps": 382.66,
+      "wall_time_s": 8.363,
+      "latency_ms": {
+        "min": 51.74,
+        "max": 118.58,
+        "mean": 83.25,
+        "median": 95.11,
+        "p95": 106.25,
+        "p99": 110.0
+      }
+    }
+  ],
+  "theoretical_max_rps": 400.0
+}

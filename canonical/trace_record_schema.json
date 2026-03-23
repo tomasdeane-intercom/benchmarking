@@ -1,0 +1,91 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.local/trace_record_schema.json",
+  "title": "Benchmark Trace Record",
+  "oneOf": [
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "id",
+        "system",
+        "workload",
+        "run_id",
+        "enqueue_time",
+        "dequeue_time",
+        "complete_time",
+        "latency_ms",
+        "processing_ms",
+        "success"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "system": {
+          "type": "string",
+          "enum": [
+            "kafka",
+            "sidekiq"
+          ]
+        },
+        "workload": {
+          "type": "string",
+          "enum": [
+            "cpu_light",
+            "io_bound",
+            "bursty_ingest",
+            "delayed"
+          ]
+        },
+        "run_id": {
+          "type": "string"
+        },
+        "enqueue_time": {
+          "type": "number"
+        },
+        "dequeue_time": {
+          "type": "number"
+        },
+        "complete_time": {
+          "type": "number"
+        },
+        "latency_ms": {
+          "type": "number"
+        },
+        "processing_ms": {
+          "type": "number"
+        },
+        "success": {
+          "type": "boolean"
+        },
+        "target_time": {
+          "type": "number"
+        },
+        "work_start_time": {
+          "type": "number"
+        }
+      }
+    },
+    {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "_type",
+        "error",
+        "time"
+      ],
+      "properties": {
+        "_type": {
+          "const": "error"
+        },
+        "error": {
+          "type": "string"
+        },
+        "time": {
+          "type": "number"
+        }
+      }
+    }
+  ]
+}

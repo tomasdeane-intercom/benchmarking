@@ -1,0 +1,129 @@
+meta:
+  title: "Kafka vs Sidekiq: A Single-Host Benchmark of Two Stack Implementations"
+  systems:
+    - kafka
+    - sidekiq
+
+defaults:
+  messages: 5000
+  warmup: 500
+  repetitions: 3
+  partitions: 16
+  kafka_consumers: 1
+  sidekiq_workers: 1
+  worker_threads: 10
+  concurrency: 10
+  fetch_min_bytes: 1
+  fetch_max_wait_ms: 500
+  kafka_compression: "none"
+  kafka_acks: "all"
+
+suites:
+  kafka_partition_adequacy:
+    type: calibration
+    description: >
+      Partition sweep used to document the Kafka operating point for
+      comparative suites. Kafka stays fixed at 4 replicas × 1
+      consumer instance per container while partitions vary.
+    variable_under_test: partitions
+    systems: [kafka]
+    workload: cpu_light
+    overrides:
+      kafka_consumers: 4
+      worker_threads: 1
+    matrix:
+      partitions: [1, 2, 4, 6, 8, 16]
+
+  parallelism_decomposition:
+    type: calibration
+    description: >
+      Hold nominal concurrency at 16 and vary replica ×
+      per-container layout. For Kafka, the profile means consumer
+      replicas × consumer instances per container. For Sidekiq, the
+      profile means worker replicas × threads per worker.
+    variable_under_test: concurrency_profile
+    systems: [kafka, sidekiq]
+    workload: cpu_light
+    overrides:
+      partitions: 16
+    profiles:
+      - name: "1x16"
+        replicas: 1
+        threads: 16
+      - name: "4x4"
+        replicas: 4
+        threads: 4
+      - name: "8x2"
+        replicas: 8
+        threads: 2
+      - name: "16x1"
+        replicas: 16
+        threads: 1
+
+  cpu_light_matched_concurrency:
+    type: comparative
+    description: >
+      Single-container matched nominal concurrency with minimal
+      per-message work (1000 SHA-256 iterations). Kafka interprets
+      the target as configured consumer instances. Sidekiq
+      interprets it as processor slots.
+    variable_under_test: system
+    systems: [kafka, sidekiq]
+    workload: cpu_light
+    overrides:
+      messages: 10000
+    matrix:
+      concurrency: [1, 4, 8, 16]
+
+  io_bound_matched_concurrency:
+    type: comparative
+    description: >
+      Matched nominal concurrency with a 50 ms stub HTTP dependency.
+      Compare throughput and wait-to-start against the calibrated
+      stub ceiling. Kafka interprets the target as configured
+      consumer instances. Sidekiq interprets it as processor slots.
+    variable_under_test: system
+    systems: [kafka, sidekiq]
+    workload: io_bound
+    overrides:
+      messages: 2000
+    matrix:
+      concurrency: [1, 4, 8, 16]
+
+  bursty_ingest_shape:
+    type: comparative
+    description: >
+      Producer-shape comparison for burst absorption. Total message
+      count and consumer concurrency stay fixed; the measured outputs
+      are drain time and wait-to-start.
+    variable_under_test: produce_shape
+    systems: [kafka, sidekiq]
+    workload: bursty_ingest
+    shapes:
+      - name: steady
+        burst_size: 1
+        inter_burst_ms: 0.5
+      - name: microburst
+        burst_size: 10
+        inter_burst_ms: 5
+      - name: burst
+        burst_size: 100
+        inter_burst_ms: 50
+      - name: shock_burst
+        burst_size: 5000
+        inter_burst_ms: 0
+
+  delayed_case_study:
+    type: case_study
+    description: >
+      Delayed-execution case study. Kafka waits in the consumer until
+      target time. Sidekiq uses native scheduled jobs. Target times
+      are distributed across the 30 s delay window. Main outputs are
+      lateness and jitter.
+    variable_under_test: system
+    systems: [kafka, sidekiq]
+    workload: delayed
+    overrides:
+      messages: 1000
+      warmup: 200
+      delay_seconds: 30

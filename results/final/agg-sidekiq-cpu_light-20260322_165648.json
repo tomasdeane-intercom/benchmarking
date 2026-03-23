@@ -1,0 +1,230 @@
+[
+  {
+    "schema_version": "3.5.0",
+    "run_id": "sidekiq-cpu_light-20260322_165613-4108a245",
+    "suite_id": "cpu_light_matched_concurrency",
+    "condition_id": "concurrency=8",
+    "repeat_index": 1,
+    "variable_under_test": "system",
+    "system": "sidekiq",
+    "workload": "cpu_light",
+    "timestamp": "2026-03-22T16:56:24.236375+00:00",
+    "run_start_utc": "2026-03-22T16:56:14.180308Z",
+    "run_end_utc": "2026-03-22T16:56:23.727999Z",
+    "config": {
+      "messages": 10000,
+      "warmup": 500,
+      "produce_pattern": "sequential",
+      "stub_delay_ms": 0,
+      "stub_capacity_workers": 20,
+      "nominal_concurrency_target": 8,
+      "semantics_profile": "retry=false, Redis queue, worker-thread execution",
+      "burst_size": null,
+      "inter_burst_ms": null,
+      "delay_seconds": null,
+      "concurrency_model": "processor_slots",
+      "sidekiq_worker_replicas": 1,
+      "sidekiq_threads_per_worker": 8,
+      "sidekiq_configured_processor_slots": 8,
+      "sidekiq_processor_parallelism_upper_bound": 8
+    },
+    "statistics": {
+      "expected_messages": 10000,
+      "accounted_messages": 10000,
+      "total_messages": 10000,
+      "successful": 10000,
+      "logical_failures": 0,
+      "exception_failures": 0,
+      "failed": 0,
+      "error_rate_pct": 0.0,
+      "latency_ms": {
+        "min": 1.02,
+        "max": 8657.94,
+        "mean": 4364.77,
+        "median": 4358.64,
+        "p95": 8220.21,
+        "p99": 8569.37,
+        "stddev": 2481.75
+      },
+      "wait_to_start_ms": {
+        "min": 0.17,
+        "max": 8657.28,
+        "mean": 4364.09,
+        "median": 4358.01,
+        "p95": 8219.44,
+        "p99": 8568.58,
+        "stddev": 2481.76
+      },
+      "processing_ms": {
+        "min": 0.58,
+        "max": 4.61,
+        "mean": 0.68,
+        "median": 0.65,
+        "p95": 0.81,
+        "p99": 0.94
+      },
+      "throughput": {
+        "consumed_msg_per_sec": 1061.89,
+        "produce_msg_per_sec": 13148.67
+      },
+      "timing_s": {
+        "total_wall": 9.4172,
+        "produce": 0.7605,
+        "drain": 8.6577
+      }
+    },
+    "trace_file": "traces/sidekiq-cpu_light-20260322_165613-4108a245.jsonl.gz"
+  },
+  {
+    "schema_version": "3.5.0",
+    "run_id": "sidekiq-cpu_light-20260322_165625-ef752963",
+    "suite_id": "cpu_light_matched_concurrency",
+    "condition_id": "concurrency=8",
+    "repeat_index": 2,
+    "variable_under_test": "system",
+    "system": "sidekiq",
+    "workload": "cpu_light",
+    "timestamp": "2026-03-22T16:56:36.309654+00:00",
+    "run_start_utc": "2026-03-22T16:56:26.216900Z",
+    "run_end_utc": "2026-03-22T16:56:35.768561Z",
+    "config": {
+      "messages": 10000,
+      "warmup": 500,
+      "produce_pattern": "sequential",
+      "stub_delay_ms": 0,
+      "stub_capacity_workers": 20,
+      "nominal_concurrency_target": 8,
+      "semantics_profile": "retry=false, Redis queue, worker-thread execution",
+      "burst_size": null,
+      "inter_burst_ms": null,
+      "delay_seconds": null,
+      "concurrency_model": "processor_slots",
+      "sidekiq_worker_replicas": 1,
+      "sidekiq_threads_per_worker": 8,
+      "sidekiq_configured_processor_slots": 8,
+      "sidekiq_processor_parallelism_upper_bound": 8
+    },
+    "statistics": {
+      "expected_messages": 10000,
+      "accounted_messages": 10000,
+      "total_messages": 10000,
+      "successful": 10000,
+      "logical_failures": 0,
+      "exception_failures": 0,
+      "failed": 0,
+      "error_rate_pct": 0.0,
+      "latency_ms": {
+        "min": 1.06,
+        "max": 8701.36,
+        "mean": 4379.47,
+        "median": 4406.29,
+        "p95": 8255.18,
+        "p99": 8610.93,
+        "stddev": 2495.59
+      },
+      "wait_to_start_ms": {
+        "min": 0.37,
+        "max": 8700.58,
+        "mean": 4378.79,
+        "median": 4405.67,
+        "p95": 8254.55,
+        "p99": 8610.18,
+        "stddev": 2495.6
+      },
+      "processing_ms": {
+        "min": 0.58,
+        "max": 3.84,
+        "mean": 0.69,
+        "median": 0.65,
+        "p95": 0.82,
+        "p99": 0.93
+      },
+      "throughput": {
+        "consumed_msg_per_sec": 1056.63,
+        "produce_msg_per_sec": 13095.26
+      },
+      "timing_s": {
+        "total_wall": 9.4641,
+        "produce": 0.7636,
+        "drain": 8.7013
+      }
+    },
+    "trace_file": "traces/sidekiq-cpu_light-20260322_165625-ef752963.jsonl.gz"
+  },
+  {
+    "schema_version": "3.5.0",
+    "run_id": "sidekiq-cpu_light-20260322_165637-9743d2f0",
+    "suite_id": "cpu_light_matched_concurrency",
+    "condition_id": "concurrency=8",
+    "repeat_index": 3,
+    "variable_under_test": "system",
+    "system": "sidekiq",
+    "workload": "cpu_light",
+    "timestamp": "2026-03-22T16:56:48.703922+00:00",
+    "run_start_utc": "2026-03-22T16:56:38.374612Z",
+    "run_end_utc": "2026-03-22T16:56:48.167534Z",
+    "config": {
+      "messages": 10000,
+      "warmup": 500,
+      "produce_pattern": "sequential",
+      "stub_delay_ms": 0,
+      "stub_capacity_workers": 20,
+      "nominal_concurrency_target": 8,
+      "semantics_profile": "retry=false, Redis queue, worker-thread execution",
+      "burst_size": null,
+      "inter_burst_ms": null,
+      "delay_seconds": null,
+      "concurrency_model": "processor_slots",
+      "sidekiq_worker_replicas": 1,
+      "sidekiq_threads_per_worker": 8,
+      "sidekiq_configured_processor_slots": 8,
+      "sidekiq_processor_parallelism_upper_bound": 8
+    },
+    "statistics": {
+      "expected_messages": 10000,
+      "accounted_messages": 10000,
+      "total_messages": 10000,
+      "successful": 10000,
+      "logical_failures": 0,
+      "exception_failures": 0,
+      "failed": 0,
+      "error_rate_pct": 0.0,
+      "latency_ms": {
+        "min": 1.03,
+        "max": 8852.62,
+        "mean": 4460.68,
+        "median": 4472.0,
+        "p95": 8410.26,
+        "p99": 8768.28,
+        "stddev": 2538.78
+      },
+      "wait_to_start_ms": {
+        "min": 0.17,
+        "max": 8852.0,
+        "mean": 4459.99,
+        "median": 4471.36,
+        "p95": 8409.64,
+        "p99": 8767.53,
+        "stddev": 2538.79
+      },
+      "processing_ms": {
+        "min": 0.58,
+        "max": 4.31,
+        "mean": 0.69,
+        "median": 0.66,
+        "p95": 0.84,
+        "p99": 0.93
+      },
+      "throughput": {
+        "consumed_msg_per_sec": 1040.91,
+        "produce_msg_per_sec": 13233.54
+      },
+      "timing_s": {
+        "total_wall": 9.6069,
+        "produce": 0.7557,
+        "drain": 8.8522
+      }
+    },
+    "trace_file": "traces/sidekiq-cpu_light-20260322_165637-9743d2f0.jsonl.gz"
+  }
+]

@@ -1,0 +1,105 @@
+{
+  "schema_version": "3.5.0",
+  "run_id": "kafka-cpu_light-20260322_163241-2ba91619",
+  "suite_id": "kafka_partition_adequacy",
+  "condition_id": "partitions=6",
+  "repeat_index": 2,
+  "variable_under_test": "partitions",
+  "system": "kafka",
+  "workload": "cpu_light",
+  "timestamp": "2026-03-22T16:33:24.850710+00:00",
+  "run_start_utc": "2026-03-22T16:33:23.541710Z",
+  "run_end_utc": "2026-03-22T16:33:24.580102Z",
+  "config": {
+    "messages": 5000,
+    "warmup": 500,
+    "produce_pattern": "sequential",
+    "stub_delay_ms": 0,
+    "stub_capacity_workers": 20,
+    "nominal_concurrency_target": 4,
+    "semantics_profile": "acks=all, single-replica topic, partition-ordered consumption",
+    "burst_size": null,
+    "inter_burst_ms": null,
+    "delay_seconds": null,
+    "concurrency_model": "consumer_instances",
+    "requested_partitions": 6,
+    "observed_partitions": 6,
+    "kafka_consumer_replicas": 4,
+    "kafka_consumer_instances_per_container": 1,
+    "kafka_configured_consumer_instances": 4,
+    "kafka_assignment_parallelism_upper_bound": 4,
+    "kafka_compression": "none",
+    "kafka_acks": "all"
+  },
+  "statistics": {
+    "expected_messages": 5000,
+    "accounted_messages": 5000,
+    "total_messages": 5000,
+    "successful": 5000,
+    "logical_failures": 0,
+    "exception_failures": 0,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 7.39,
+      "max": 768.01,
+      "mean": 328.71,
+      "median": 295.93,
+      "p95": 706.44,
+      "p99": 752.75,
+      "stddev": 205.09
+    },
+    "wait_to_start_ms": {
+      "min": 6.58,
+      "max": 767.66,
+      "mean": 328.35,
+      "median": 295.59,
+      "p95": 706.07,
+      "p99": 752.38,
+      "stddev": 205.09
+    },
+    "processing_ms": {
+      "min": 0.33,
+      "max": 0.89,
+      "mean": 0.36,
+      "median": 0.35,
+      "p95": 0.39,
+      "p99": 0.58
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 6278.78,
+      "produce_msg_per_sec": 163070.51
+    },
+    "timing_s": {
+      "total_wall": 0.7963,
+      "produce": 0.0307,
+      "drain": 0.7657
+    }
+  },
+  "trace_file": "traces/kafka-cpu_light-20260322_163241-2ba91619.jsonl.gz",
+  "resource_usage": {
+    "samples": 2,
+    "by_role": {
+      "kafka_consumer": {
+        "cpu_pct": {
+          "mean": 0.24,
+          "peak": 0.24
+        },
+        "mem_mb": {
+          "mean": 109.07,
+          "peak": 109.07
+        }
+      },
+      "kafka_broker": {
+        "cpu_pct": {
+          "mean": 2.42,
+          "peak": 2.56
+        },
+        "mem_mb": {
+          "mean": 839.35,
+          "peak": 877.5
+        }
+      }
+    }
+  }
+}

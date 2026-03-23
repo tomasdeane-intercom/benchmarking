@@ -1,0 +1,126 @@
+{
+  "schema_version": "3.5.0",
+  "run_id": "sidekiq-delayed-20260322_174239-11998947",
+  "suite_id": "delayed_case_study",
+  "condition_id": "delayed_case",
+  "repeat_index": 3,
+  "variable_under_test": "system",
+  "system": "sidekiq",
+  "workload": "delayed",
+  "timestamp": "2026-03-22T17:43:51.722725+00:00",
+  "run_start_utc": "2026-03-22T17:43:18.648746Z",
+  "run_end_utc": "2026-03-22T17:43:51.655347Z",
+  "config": {
+    "messages": 1000,
+    "warmup": 200,
+    "produce_pattern": "sequential_scheduled",
+    "stub_delay_ms": 0,
+    "stub_capacity_workers": 20,
+    "nominal_concurrency_target": 10,
+    "semantics_profile": "retry=false, Redis queue, worker-thread execution",
+    "burst_size": null,
+    "inter_burst_ms": null,
+    "delay_seconds": 30.0,
+    "concurrency_model": "processor_slots",
+    "sidekiq_worker_replicas": 1,
+    "sidekiq_threads_per_worker": 10,
+    "sidekiq_configured_processor_slots": 10,
+    "sidekiq_processor_parallelism_upper_bound": 10
+  },
+  "statistics": {
+    "expected_messages": 1000,
+    "accounted_messages": 1000,
+    "total_messages": 1000,
+    "successful": 1000,
+    "logical_failures": 0,
+    "exception_failures": 0,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 6815.22,
+      "max": 32817.93,
+      "mean": 21200.53,
+      "median": 21177.86,
+      "p95": 32799.17,
+      "p99": 32814.07,
+      "stddev": 9294.05
+    },
+    "wait_to_start_ms": {
+      "min": 6814.94,
+      "max": 32817.83,
+      "mean": 21200.44,
+      "median": 21177.58,
+      "p95": 32799.1,
+      "p99": 32813.93,
+      "stddev": 9294.06
+    },
+    "processing_ms": {
+      "min": 0.06,
+      "max": 1.17,
+      "mean": 0.09,
+      "median": 0.07,
+      "p95": 0.18,
+      "p99": 0.3
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 30.38,
+      "produce_msg_per_sec": 9878.62
+    },
+    "timing_s": {
+      "total_wall": 32.9148,
+      "produce": 0.1012,
+      "drain": 32.8178
+    },
+    "start_lateness_ms": {
+      "min": 5.7,
+      "max": 14124.92,
+      "mean": 6258.0,
+      "median": 5893.0,
+      "p95": 12670.57,
+      "p99": 13839.79,
+      "stddev": 3621.81
+    },
+    "completion_lateness_ms": {
+      "min": 5.76,
+      "max": 14125.2,
+      "mean": 6258.08,
+      "median": 5893.09,
+      "p95": 12670.67,
+      "p99": 13840.95,
+      "stddev": 3621.82
+    },
+    "scheduling": {
+      "total_scheduled": 1000,
+      "early_start_count": 0,
+      "on_time_pct_100ms": 0.8,
+      "on_time_pct_500ms": 3.4,
+      "jitter_ms": 3621.81
+    }
+  },
+  "trace_file": "traces/sidekiq-delayed-20260322_174239-11998947.jsonl.gz",
+  "resource_usage": {
+    "samples": 11,
+    "by_role": {
+      "sidekiq_worker": {
+        "cpu_pct": {
+          "mean": 1.16,
+          "peak": 9.01
+        },
+        "mem_mb": {
+          "mean": 26.99,
+          "peak": 27.56
+        }
+      },
+      "redis_broker": {
+        "cpu_pct": {
+          "mean": 0.98,
+          "peak": 3.45
+        },
+        "mem_mb": {
+          "mean": 20.86,
+          "peak": 21.4
+        }
+      }
+    }
+  }
+}

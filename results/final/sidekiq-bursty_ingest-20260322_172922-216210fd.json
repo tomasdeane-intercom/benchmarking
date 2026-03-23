@@ -1,0 +1,101 @@
+{
+  "schema_version": "3.5.0",
+  "run_id": "sidekiq-bursty_ingest-20260322_172922-216210fd",
+  "suite_id": "bursty_ingest_shape",
+  "condition_id": "produce_shape=steady",
+  "repeat_index": 1,
+  "variable_under_test": "produce_shape",
+  "system": "sidekiq",
+  "workload": "bursty_ingest",
+  "timestamp": "2026-03-22T17:29:28.206841+00:00",
+  "run_start_utc": "2026-03-22T17:29:22.644949Z",
+  "run_end_utc": "2026-03-22T17:29:27.936885Z",
+  "config": {
+    "messages": 5000,
+    "warmup": 500,
+    "produce_pattern": "steady",
+    "stub_delay_ms": 0,
+    "stub_capacity_workers": 20,
+    "nominal_concurrency_target": 10,
+    "semantics_profile": "retry=false, Redis queue, worker-thread execution",
+    "burst_size": 1,
+    "inter_burst_ms": 0.5,
+    "delay_seconds": null,
+    "concurrency_model": "processor_slots",
+    "sidekiq_worker_replicas": 1,
+    "sidekiq_threads_per_worker": 10,
+    "sidekiq_configured_processor_slots": 10,
+    "sidekiq_processor_parallelism_upper_bound": 10
+  },
+  "statistics": {
+    "expected_messages": 5000,
+    "accounted_messages": 5000,
+    "total_messages": 5000,
+    "successful": 5000,
+    "logical_failures": 0,
+    "exception_failures": 0,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 0.17,
+      "max": 1.9,
+      "mean": 0.37,
+      "median": 0.36,
+      "p95": 0.47,
+      "p99": 0.87,
+      "stddev": 0.09
+    },
+    "wait_to_start_ms": {
+      "min": 0.1,
+      "max": 1.67,
+      "mean": 0.22,
+      "median": 0.22,
+      "p95": 0.25,
+      "p99": 0.38,
+      "stddev": 0.05
+    },
+    "processing_ms": {
+      "min": 0.07,
+      "max": 0.84,
+      "mean": 0.15,
+      "median": 0.14,
+      "p95": 0.17,
+      "p99": 0.63
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 992.24,
+      "produce_msg_per_sec": 992.07
+    },
+    "timing_s": {
+      "total_wall": 5.0391,
+      "produce": 5.0399,
+      "drain": 0.0002
+    }
+  },
+  "trace_file": "traces/sidekiq-bursty_ingest-20260322_172922-216210fd.jsonl.gz",
+  "resource_usage": {
+    "samples": 1,
+    "by_role": {
+      "sidekiq_worker": {
+        "cpu_pct": {
+          "mean": 45.65,
+          "peak": 45.65
+        },
+        "mem_mb": {
+          "mean": 26.7,
+          "peak": 26.7
+        }
+      },
+      "redis_broker": {
+        "cpu_pct": {
+          "mean": 10.53,
+          "peak": 10.53
+        },
+        "mem_mb": {
+          "mean": 21.69,
+          "peak": 21.69
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,91 @@
+{
+  "schema_version": "3.5.0",
+  "run_id": "sidekiq-bursty_ingest-20260322_173634-1dd41d59",
+  "suite_id": "bursty_ingest_shape",
+  "condition_id": "produce_shape=shock_burst",
+  "repeat_index": 2,
+  "variable_under_test": "produce_shape",
+  "system": "sidekiq",
+  "workload": "bursty_ingest",
+  "timestamp": "2026-03-22T17:36:36.873512+00:00",
+  "run_start_utc": "2026-03-22T17:36:34.957510Z",
+  "run_end_utc": "2026-03-22T17:36:36.631055Z",
+  "config": {
+    "messages": 5000,
+    "warmup": 500,
+    "produce_pattern": "shock_burst",
+    "stub_delay_ms": 0,
+    "stub_capacity_workers": 20,
+    "nominal_concurrency_target": 10,
+    "semantics_profile": "retry=false, Redis queue, worker-thread execution",
+    "burst_size": 5000,
+    "inter_burst_ms": 0.0,
+    "delay_seconds": null,
+    "concurrency_model": "processor_slots",
+    "sidekiq_worker_replicas": 1,
+    "sidekiq_threads_per_worker": 10,
+    "sidekiq_configured_processor_slots": 10,
+    "sidekiq_processor_parallelism_upper_bound": 10
+  },
+  "statistics": {
+    "expected_messages": 5000,
+    "accounted_messages": 5000,
+    "total_messages": 5000,
+    "successful": 5000,
+    "logical_failures": 0,
+    "exception_failures": 0,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 0.53,
+      "max": 1238.65,
+      "mean": 631.76,
+      "median": 635.07,
+      "p95": 1178.38,
+      "p99": 1226.7,
+      "stddev": 354.2
+    },
+    "wait_to_start_ms": {
+      "min": 0.38,
+      "max": 1238.57,
+      "mean": 631.69,
+      "median": 634.98,
+      "p95": 1178.3,
+      "p99": 1226.63,
+      "stddev": 354.2
+    },
+    "processing_ms": {
+      "min": 0.06,
+      "max": 0.57,
+      "mean": 0.08,
+      "median": 0.07,
+      "p95": 0.1,
+      "p99": 0.26
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 3020.97,
+      "produce_msg_per_sec": 11950.2
+    },
+    "timing_s": {
+      "total_wall": 1.6551,
+      "produce": 0.4184,
+      "drain": 1.2381
+    }
+  },
+  "trace_file": "traces/sidekiq-bursty_ingest-20260322_173634-1dd41d59.jsonl.gz",
+  "resource_usage": {
+    "samples": 1,
+    "by_role": {
+      "redis_broker": {
+        "cpu_pct": {
+          "mean": 21.05,
+          "peak": 21.05
+        },
+        "mem_mb": {
+          "mean": 22.51,
+          "peak": 22.51
+        }
+      }
+    }
+  }
+}

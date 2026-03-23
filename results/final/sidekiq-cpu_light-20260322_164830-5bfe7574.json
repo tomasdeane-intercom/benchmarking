@@ -1,0 +1,101 @@
+{
+  "schema_version": "3.5.0",
+  "run_id": "sidekiq-cpu_light-20260322_164830-5bfe7574",
+  "suite_id": "parallelism_decomposition",
+  "condition_id": "concurrency_profile=4x4",
+  "repeat_index": 1,
+  "variable_under_test": "concurrency_profile",
+  "system": "sidekiq",
+  "workload": "cpu_light",
+  "timestamp": "2026-03-22T16:48:32.286343+00:00",
+  "run_start_utc": "2026-03-22T16:48:30.536176Z",
+  "run_end_utc": "2026-03-22T16:48:32.024485Z",
+  "config": {
+    "messages": 5000,
+    "warmup": 500,
+    "produce_pattern": "sequential",
+    "stub_delay_ms": 0,
+    "stub_capacity_workers": 20,
+    "nominal_concurrency_target": 16,
+    "semantics_profile": "retry=false, Redis queue, worker-thread execution",
+    "burst_size": null,
+    "inter_burst_ms": null,
+    "delay_seconds": null,
+    "concurrency_model": "processor_slots",
+    "sidekiq_worker_replicas": 4,
+    "sidekiq_threads_per_worker": 4,
+    "sidekiq_configured_processor_slots": 16,
+    "sidekiq_processor_parallelism_upper_bound": 16
+  },
+  "statistics": {
+    "expected_messages": 5000,
+    "accounted_messages": 5000,
+    "total_messages": 5000,
+    "successful": 5000,
+    "logical_failures": 0,
+    "exception_failures": 0,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 1.82,
+      "max": 898.42,
+      "mean": 457.42,
+      "median": 469.08,
+      "p95": 853.87,
+      "p99": 888.62,
+      "stddev": 257.07
+    },
+    "wait_to_start_ms": {
+      "min": 0.49,
+      "max": 897.54,
+      "mean": 456.64,
+      "median": 468.4,
+      "p95": 853.19,
+      "p99": 887.92,
+      "stddev": 257.09
+    },
+    "processing_ms": {
+      "min": 0.66,
+      "max": 2.64,
+      "mean": 0.78,
+      "median": 0.73,
+      "p95": 1.0,
+      "p99": 1.19
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 3625.16,
+      "produce_msg_per_sec": 10348.5
+    },
+    "timing_s": {
+      "total_wall": 1.3792,
+      "produce": 0.4832,
+      "drain": 0.8982
+    }
+  },
+  "trace_file": "traces/sidekiq-cpu_light-20260322_164830-5bfe7574.jsonl.gz",
+  "resource_usage": {
+    "samples": 1,
+    "by_role": {
+      "sidekiq_worker": {
+        "cpu_pct": {
+          "mean": 312.86,
+          "peak": 312.86
+        },
+        "mem_mb": {
+          "mean": 106.44,
+          "peak": 106.44
+        }
+      },
+      "redis_broker": {
+        "cpu_pct": {
+          "mean": 15.4,
+          "peak": 15.4
+        },
+        "mem_mb": {
+          "mean": 24.22,
+          "peak": 24.22
+        }
+      }
+    }
+  }
+}

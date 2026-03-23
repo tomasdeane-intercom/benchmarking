@@ -1,0 +1,105 @@
+{
+  "schema_version": "3.5.0",
+  "run_id": "kafka-bursty_ingest-20260322_172944-0823c27e",
+  "suite_id": "bursty_ingest_shape",
+  "condition_id": "produce_shape=microburst",
+  "repeat_index": 1,
+  "variable_under_test": "produce_shape",
+  "system": "kafka",
+  "workload": "bursty_ingest",
+  "timestamp": "2026-03-22T17:30:09.934506+00:00",
+  "run_start_utc": "2026-03-22T17:30:06.384593Z",
+  "run_end_utc": "2026-03-22T17:30:09.676863Z",
+  "config": {
+    "messages": 5000,
+    "warmup": 500,
+    "produce_pattern": "microburst",
+    "stub_delay_ms": 0,
+    "stub_capacity_workers": 20,
+    "nominal_concurrency_target": 10,
+    "semantics_profile": "acks=all, single-replica topic, partition-ordered consumption",
+    "burst_size": 10,
+    "inter_burst_ms": 5.0,
+    "delay_seconds": null,
+    "concurrency_model": "consumer_instances",
+    "requested_partitions": 16,
+    "observed_partitions": 16,
+    "kafka_consumer_replicas": 1,
+    "kafka_consumer_instances_per_container": 10,
+    "kafka_configured_consumer_instances": 10,
+    "kafka_assignment_parallelism_upper_bound": 10,
+    "kafka_compression": "none",
+    "kafka_acks": "all"
+  },
+  "statistics": {
+    "expected_messages": 5000,
+    "accounted_messages": 5000,
+    "total_messages": 5000,
+    "successful": 5000,
+    "logical_failures": 0,
+    "exception_failures": 0,
+    "failed": 0,
+    "error_rate_pct": 0.0,
+    "latency_ms": {
+      "min": 0.38,
+      "max": 14.23,
+      "mean": 5.89,
+      "median": 6.7,
+      "p95": 8.69,
+      "p99": 9.77,
+      "stddev": 2.4
+    },
+    "wait_to_start_ms": {
+      "min": 0.35,
+      "max": 14.16,
+      "mean": 5.83,
+      "median": 6.64,
+      "p95": 8.63,
+      "p99": 9.7,
+      "stddev": 2.4
+    },
+    "processing_ms": {
+      "min": 0.04,
+      "max": 0.45,
+      "mean": 0.06,
+      "median": 0.06,
+      "p95": 0.07,
+      "p99": 0.09
+    },
+    "throughput": {
+      "consumed_msg_per_sec": 1645.08,
+      "produce_msg_per_sec": 1645.69
+    },
+    "timing_s": {
+      "total_wall": 3.0394,
+      "produce": 3.0382,
+      "drain": 0.0011
+    }
+  },
+  "trace_file": "traces/kafka-bursty_ingest-20260322_172944-0823c27e.jsonl.gz",
+  "resource_usage": {
+    "samples": 1,
+    "by_role": {
+      "kafka_consumer": {
+        "cpu_pct": {
+          "mean": 63.68,
+          "peak": 63.68
+        },
+        "mem_mb": {
+          "mean": 37.69,
+          "peak": 37.69
+        }
+      },
+      "kafka_broker": {
+        "cpu_pct": {
+          "mean": 48.69,
+          "peak": 48.69
+        },
+        "mem_mb": {
+          "mean": 1169.41,
+          "peak": 1169.41
+        }
+      }
+    }
+  }
+}
